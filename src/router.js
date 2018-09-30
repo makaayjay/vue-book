@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './components/home.vue'
+import List from './components/list'
+import Detail from './components/detail'
+import Collect from './components/collect'
 
 Vue.use(Router)
 
@@ -8,11 +11,32 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
+      {
+          path: '/',
+          redirect:'home'
+      },
+
+      {
+          path: '/home',
+          name: 'home',
+          component: Home
+      },
+
+      {
+        path:'/collect',
+          name:'collect',
+          component:Collect
+      },
+      {
+       path:'/list',
+       name:'list',
+       component:List
+      },
+      {
+          path:'/detail/:bid',
+          name:'detail',
+          component:Detail
+      },
     {
       path: '/about',
       name: 'about',
